@@ -30,12 +30,15 @@ jobs:
 
       - name: Run Flask API (app.py)
         run: |
-          nohup python app.py --host 0.0.0.0 --port 5000 &  # Запуск API на фоні
+          nohup python app.py --host 0.0.0.0 --port 5000 &  
 
       - name: Run tests (if available)
         run: |
           if ls test_* 2>/dev/null; then
+            echo "Tests found. Running tests..."
             pytest
           else
-            echo "No tests found. Skipping."
+            echo "No tests found. Skipping tests."
+          fi
+
 
